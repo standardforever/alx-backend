@@ -32,9 +32,9 @@ class MRUCache(BaseCaching):
 
             if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
 
-                del self.cache_data[MRUCache.item_used[3]]
-                print("DISCARD: {}".format(MRUCache.item_used[3]))
-                MRUCache.item_used.pop(3)
+                del self.cache_data[MRUCache.item_used[BaseCaching.MAX_ITEMS]]
+                print("DISCARD: {}".format(MRUCache.item_used[BaseCaching.MAX_ITEMS]))
+                MRUCache.item_used.pop(BaseCaching.MAX_ITEMS)
 
     def get(self, key):
         """ Must return the value in self.cache_data linked to key
