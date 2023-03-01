@@ -27,11 +27,11 @@ class LFUCache(BaseCaching):
 
             if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
                 value = sorted(LFUCache.item_count.values())
-                if (value[0] == value[1]):
+                if (len(value) > 1 and value[0] == value[1]):
                     to_delete = ''
                     items = LFUCache.item_used
                     index = 0
-                    for i in range(4):
+                    for i in range(BaseCaching.MAX_ITEMS):
                         if (LFUCache.item_count[items[i]] == value[0]):
                             to_delete = items[i]
                             index = i
