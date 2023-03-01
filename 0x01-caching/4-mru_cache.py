@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env pythondet
 """MRUCache Algorithm
 """
 
@@ -31,10 +31,10 @@ class MRUCache(BaseCaching):
                 MRUCache.item_used.append(key)
 
             if (len(self.cache_data) > BaseCaching.MAX_ITEMS):
-
-                del self.cache_data[MRUCache.item_used[BaseCaching.MAX_ITEMS]]
-                print("DISCARD: {}".format(MRUCache.item_used[BaseCaching.MAX_ITEMS]))
-                MRUCache.item_used.pop(BaseCaching.MAX_ITEMS)
+                det = BaseCaching.MAX_ITEMS - 1
+                del self.cache_data[MRUCache.item_used[det]]
+                print("DISCARD: {}".format(MRUCache.item_used[det]))
+                MRUCache.item_used.pop(det)
 
     def get(self, key):
         """ Must return the value in self.cache_data linked to key
